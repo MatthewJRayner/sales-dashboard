@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DashboardDataProvider from '../components/DashboardDataProvider';
 import Selector from '../components/Selector';
 import DailyStatsSummary from '../components/home-page/DailyStatsSummary';
 import MonthlyTiles from '../components/home-page/MonthlyTiles';
@@ -7,20 +6,16 @@ import BestSellers from '../components/home-page/BestSellers';
 import YearSalesDisplay from '../components/home-page/YearSalesDisplay';
 import AverageGrowthDisplay from '../components/home-page/AverageGrowthDisplay';
 import MonthSalesDisplay from '../components/home-page/MonthSalesDisplay';
+import { dummyStatsHome } from '../utils/dummyStatsHome';
 
 const HomeDashboard = () => {
     const [location, setLocation] = useState('Both');
-    const locations = [location];
-    const [stats, setStats] = useState({});
     var current_month = new Date().toLocaleString("en-us", { month: 'long' });
     var current_year = new Date().toLocaleDateString("en-us", { year: 'numeric' })
     var currency_sym = '£';
 
     // Sets the stats dictionary being displaying to change with the location selector
-    const handleStatsLoaded = (data) => {
-        console.log('Home stats:', data[location]);
-        setStats(data)
-    };
+    const stats = dummyStatsHome
 
     // Stats dictionaries to be passed through components
     const DailyStatsSummaryStats = [
@@ -41,7 +36,6 @@ const HomeDashboard = () => {
 
     return (
         <div className='flex-col'>
-            <DashboardDataProvider locations={locations} onStatsLoaded={handleStatsLoaded} />
             <div className="bg-white shadow-md flex p-4 rounded-2xl text-md items-center justify-center md:justify-start">
                 <h1 className="text-gray-300 mr-4 md:mr-12 inline-block"><span className='text-black_text hidden md:inline-block'>BBB Dashboard </span> <span className='hidden md:inline-block'> | </span><span className='text-black_text md:text-gray-300 font-semibold md:font-normal'> Home</span></h1>
                 <Selector 
