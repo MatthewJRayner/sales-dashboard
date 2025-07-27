@@ -30,7 +30,7 @@ This version **does not** include:
 
 For the **full version** (built with Django + React, real sales data, and background task automation), see the main project repo:
 
-👉 [Full Bread by Bike Dashboard (Coming Soon)](#)
+👉 [Full Bread by Bike Dashboard (Coming Soon)](https://github.com/MatthewJRayner/breadbybike-dashboard)
 
 ---
 
